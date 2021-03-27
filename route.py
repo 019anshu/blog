@@ -27,6 +27,7 @@ def create():
         if form.validate_on_submit:
             blogtitle = form.blogtitle.data
             blogcontent = form.blogcontent.data
+            flash("Posted a new Blog successfully!")
             return redirect(url_for('create'))
 
     return render_template('create.html', form=form, name=session.get('blogtitle'))
