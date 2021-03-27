@@ -9,13 +9,24 @@
         crossorigin="anonymous">
     {% block title %}{% endblock %}
     <style>
-        
+        .links
+        {
+            text-align: right;
+        }
         .container 
         {
             margin-top: 70px;
             text-align: center;
         }
-        .container-create
+        .blog
+        {
+            text-align: justify;
+        }
+        .blog h2
+        {
+            text-align: center;
+        }
+        .container-form
         {
             background: #fffffe;
             position: absolute;
@@ -27,10 +38,11 @@
             border-radius: 4px;
             width: 600px;
             height: 400px;
-            text-align: left;
+            text-align: justify;
             box-shadow: 0 0 20px #000000b3;
             font-family: "Montserrat",sans-serif; 
         }
+        
         .alert
         {
             padding: 5px;
@@ -65,6 +77,37 @@
         {
             color:black;
         }
+        .blog div
+        {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            line-height: 30px;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            margin: 0 20px;
+            font-size: 1em;
+            font-weight: lighter;
+        }
+        .fullblog div
+        {
+            position: relative;
+            width: 1000px;
+            height: 600px;
+            line-height: 30px;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            margin: 0 25px;
+            font-size: 1em;
+            font-weight: lighter;
+        }
+        .fullblog button
+        {
+            align-items: flex-end;
+        }
+        
     </style>
 </head>
 <body>
@@ -77,8 +120,6 @@
         </div>
     {% endfor %}
 
-    
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         crossorigin="anonymous">

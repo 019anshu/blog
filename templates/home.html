@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}
-    <title>WinkedStories</title>
+<title>WhiskedStories</title>
 {% endblock %}
 {% block body %}
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand">WinkedStories Blog</a>
+        <a class="navbar-brand">WhiskedStories Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blogs</a>
+                    <a class="nav-link" href="/blogs">Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
             </ul>
         </div>
@@ -30,5 +30,20 @@
     <button type="button" class="btn btn-outline-dark" onclick="window.location.href='/create';">
         + Create a post
     </button>
+</div>
+<div class="blog">
+    <h2><br><br>Your Blogs</h2>
+    {% for blog in allblog %}
+    <div class="btn btn-outline-secondary">
+        
+        <p><span style="font-weight: bold; font-size: 15px;">{{ blog.id }}. {{ blog.blogtitle }}</span></p>
+        <p><b>Created on:</b> {{ blog.dateposted }}</p>
+        
+        <button type="button" class="btn btn-outline-dark" onclick="window.location.href= '/blogs/blog.id';">
+            Read ->
+        </button>
+    </div>
+    {% endfor %}
+</div>
 </div>
 {% endblock %}

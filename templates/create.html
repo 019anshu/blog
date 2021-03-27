@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>WinkedStories- Create</title>
+<title>WhiskedStories- Create</title>
 <h1 style="text-align: center;">Create a new Post</h1>
 {% endblock %}
 
 {% block body %}
-<div class="container-create">
+<div class="container-form">
     <form id="create" action="" method="POST" class="create-form" role="form">
         <div class="mb-3">
             <label for="blogtitle" class="form-label">Blog Title</label>
@@ -16,8 +16,13 @@
             <label for="blogcontent" class="form-label">Blog Content</label>
             {{ form.blogcontent() }}
         </div>
-        
         <button type="submit" class="btn btn-primary">Add Post</button>
     </form>
+</div>
+<p><br><br></p>
+<div class="links">
+    <button type="button" class="btn btn-outline-info" onclick="window.location.href='/home';">
+        Take me Back to Home
+    </button>
 </div>
 {% endblock %}
