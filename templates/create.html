@@ -9,12 +9,12 @@
 <div class="container-create">
     <form id="create" action="" method="POST" class="create-form" role="form">
         <div class="mb-3">
-            <label for="blogtitle" class="form-label">Blog Title</label>
-            <input type="text" class="form-control" id="blogtitle">
+            <label for="blogcontent" class="form-label">Blog Title</label>
+            <input type="text" class="form-control" id="blogtitle" required>
         </div>
         <div class="mb-3">
             <label for="blogcontent" class="form-label">Blog Content</label>
-            <textarea class="form-control" id="blogcontent" rows="6" cols="50"></textarea>
+            <textarea class="form-control" id="blogcontent" rows="6" cols="50" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Add Post</button>
     </form>
