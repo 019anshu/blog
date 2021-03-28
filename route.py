@@ -12,8 +12,8 @@ app=Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///blogpost.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-app.config['SECRET_KEY'] =  os.environ.get('SECRET_KEY')
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
