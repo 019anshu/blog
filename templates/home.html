@@ -39,9 +39,9 @@
         <p><span style="font-weight: bold; font-size: 15px;">{{ blog.id }}. {{ blog.blogtitle }}</span></p>
         <p><b>Created on:</b> {{ blog.dateposted }}</p>
         
-        <button type="button" class="btn btn-outline-dark" onclick="window.location.href= '/blogs/blog.id';">
+        <a class="article-title" href= "{{ url_for('showblog', id=blog.id) }}">
             Read ->
-        </button>
+        </a>
     </div>
     {% endfor %}
 </div>

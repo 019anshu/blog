@@ -79,8 +79,8 @@ def blogs():
 
 @app.route('/blogs/<id>',  methods=['GET', 'POST'])
 def showblog(id):
-    blog = blogpost.query.filter(blogpost.id == id)
-    return render_template("showblog.html",blog = blog)
+    blog = blogpost.query.get_or_404(id)
+    return render_template("showblog.html",title= blog.blogtitle, blog = blog)
 
 @app.errorhandler(404)
 def page_not_found(e):
