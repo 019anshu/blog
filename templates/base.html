@@ -5,124 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="static\iconn.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-        crossorigin="anonymous">
-    {% block title %}{% endblock %}
-    <style>
-        .links
-        {
-            text-align: right;
-        }
-        .container 
-        {
-            margin-top: 70px;
-            text-align: center;
-        }
-        .blog
-        {
-            text-align: justify;
-        }
-        .blog h2
-        {
-            text-align: center;
-        }
-        .container-form
-        {
-            background: #fffffe;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            padding: 30px 40px;
-            box-sizing: border-box;
-            border-radius: 4px;
-            width: 600px;
-            height: 400px;
-            text-align: justify;
-            box-shadow: 0 0 20px #000000b3;
-            font-family: "Montserrat",sans-serif; 
-        }
-        
-        .alert
-        {
-            padding: 5px;
-            background-color: #31c2ee;
-            color: white;
-            opacity: 0.8;
-            box-sizing: border-box;
-            border-radius: 8px;
-            margin-bottom: 7px;
-            text-align: center;
-            font-family: "Montserrat",sans-serif;
-            box-shadow: 0 0 20px #000000b3;
-        }
-        .alert h1
-        {
-            margin-top: 0;
-            font-size: 15px;
-        }
-        .closebtn
-        {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover 
-        {
-            color:black;
-        }
-        .blog div
-        {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            line-height: 30px;
-            text-align: center;
-            background: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            margin: 0 20px;
-            font-size: 1em;
-            font-weight: lighter;
-        }
-        .fullblog div
-        {
-            position: relative;
-            width: 1000px;
-            height: 600px;
-            line-height: 30px;
-            text-align: center;
-            background: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            margin: 0 25px;
-            font-size: 1em;
-            font-weight: lighter;
-        }
-        .fullblog button
-        {
-            align-items: flex-end;
-        }
-        
-    </style>
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    {% if title %}
+    <title>WhiskedStories - {{ title }}</title>
+    {% else %}
+    <title>WhiskedStories</title>
+    {% endif %}
 </head>
 <body>
-    {% block head %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% for message in get_flashed_messages() %}
-        <div class="alert alert-success" role = "alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <p>{{ message }}<p>
-        </div>
-    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand">WhiskedStories</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link" href="/about">About</a>
+                    <a class="nav-item nav-link" href="/blogs">Blogs</a>
+                    <a class="nav-item nav-link" href="/login">Log In</a>
+                    <a class="nav-item nav-link" href="/signup">Sign Up</a>
+                </div>
 
+            </div>
+        </div>
+    </nav>
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+    
+    {% block body %}{% endblock %}
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
 </body>
+
 </html>

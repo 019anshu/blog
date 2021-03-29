@@ -1,21 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}
-<title>WhiskedStories</title>
-<h1 style="text-align: center;">WhiskedStories... </h1>
-{% endblock %}
-
 {% block body %}
-    <div class="links">
-        <button type="button" class="btn btn-outline-info" onclick="window.location.href='/home';">
-            Take me Back to Home
-        </button>
-    </div>
-    <p><br><br></p>
-    <div class="fullblog">
+    <div class="container-fluid">
+        <p><span style="font-weight: bold; font-size: 15px;">{{ blog.id }}. {{ blog.blogtitle }} </span></p>
+        <p><b>Created on:</b> {{ blog.dateposted }}</p>
         <div class="btn btn-outline-secondary">
-            <p><span style="font-weight: bold; font-size: 15px;">{{ blog.id }}. {{ blog.blogtitle }} </span></p>
-            <p><b>Created on:</b> {{ blog.dateposted }}</p>
             <p>{{ blog.blogcontent }}</p>
         </div>
     </div>

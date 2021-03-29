@@ -1,0 +1,26 @@
+position:relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 30px 40px;
+            box-sizing:content-box;
+            border-radius: 4px;
+            width: 80%;
+            height: 100%;
+            text-align: justify;
+            box-shadow: 0 0 20px #000000b3;
+
+
+            .container-form
+        {
+            background: #fffffe;
+            
+            font-family: "Montserrat",sans-serif; 
+        }
+
+
+        .container 
+        {
+            margin-top: 70px;
+            text-align: center;
+        }
