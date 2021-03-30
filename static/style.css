@@ -1,16 +1,37 @@
+.container 
+{
+  margin-top: 50px;
+  text-align: justify;
+}
+.container-form
+{
+  margin-top: 100px;
+  background: #fffffe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 30px 40px;
+  box-sizing:inherit;
+  border-radius: 4px;
+  width: 600px;
+  height: 500px;
+  text-align: justify;
+  box-shadow: 0 0 20px #000000b3;
+  font-family: "Montserrat",sans-serif; 
+}
+
+.blog
+{
+  text-align: justify;
+}
+.blog h2
+{
+  text-align: center;
+}
         
-        .blog
-        {
-            text-align: justify;
-        }
-        .blog h2
-        {
-            text-align: center;
-        }
-        
-        
-        .alert
-        {
+.alert
+{
             padding: 5px;
             background-color: #31c2ee;
             color: white;
