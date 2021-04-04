@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 
 {% block body %}
-<div class="container">
-  <button type="button" class="btn btn-outline-dark" onclick="window.location.href='/create';">
-    + Create a post
-  </button>
-</div>
 <div class="blog">
   <h2><br><br>Your Blogs</h2>
   {% for blog in allblog %}

@@ -32,7 +32,8 @@ class Blogpost(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     blogtitle = db.Column(db.String(255), nullable=False)
     blogcontent = db.Column(db.String(1000), nullable=False)
-    dateposted = db.Column(db.DateTime, nullable= False, default=datetime.utcnow)
+
+    dateposted = db.Column(db.DateTime, nullable= False, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self) -> str:
@@ -73,9 +74,9 @@ class SignupForm(FlaskForm):
             raise ValidationError('That email is taken, Please choose another one!')
 
 class NewpostForm(FlaskForm):
-    blogtitle = StringField('Blog Title', validators=[DataRequired()])
-    blogcontent = TextAreaField('Blog Content', validators=[DataRequired()])
-    submit = SubmitField('Submit' )
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Post' )
 
 @app.route('/')
 def homeh():
@@ -142,18 +143,19 @@ def signup():
     return render_template("signup.html", title="Sign Up", form=form)
 
 @app.route('/create', methods=['GET', 'POST'])
+@login_required
 def create():
     form= NewpostForm()
     if request.method == 'POST':
         if form.validate_on_submit:
-            blogtitle = form.blogtitle.data
-            blogcontent = form.blogcontent.data
-            blog = Blogpost(blogtitle= blogtitle, blogcontent= blogcontent)
+            title = form.title.data
+            content = form.content.data
+            blog = Blogpost(blogtitle= title, blogcontent= content, author= current_user)
             db.session.add(blog)
             db.session.commit()
             flash("Posted a new Blog successfully!")
             return redirect(url_for('home'))
-    return render_template('create.html', title="New Post", form=form, name=session.get('blogtitle'))
+    return render_template('create.html', title="New Post", form=form, name=session.get('title'))
     
 
 
